@@ -1,0 +1,25 @@
+{
+  "name": "auto-seedr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/electron": "1.6.10",
+    "@types/electron-json-storage": "4.5.0",
+    "@types/node": "16.6.1",
+    "@types/node-fetch": "2.5.12",
+    "electron": "13.1.9",
+    "electron-json-storage": "4.5.0",
+    "electron-packager": "15.3.0",
+    "electron-rebuild": "3.1.1",
+    "form-data": "4.0.0",
+    "node-fetch": "2.6.1"
+  },
+  "scripts": {
+    "clean": "rm -rf ./build",
+    "build": "yarn clean && tsc && cp -r assets node_modules package.json build",
+    "build:electron": "electron-rebuild && electron-packager build --overwrite --platform=linux,darwin --arch=x64 --icon=./assets/logo.icns --prune=true --out=dist --ignore=temp",
+    "watch": "tsc -w",
+    "start": "electron ./build/index.js"
+  }
+}
