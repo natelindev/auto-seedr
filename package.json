@@ -6,19 +6,19 @@
   "dependencies": {
     "@types/electron": "1.6.10",
     "@types/electron-json-storage": "4.5.0",
-    "@types/node": "16.6.1",
+    "@types/node": "17.0.2",
     "@types/node-fetch": "2.5.12",
-    "electron": "13.1.9",
+    "electron": "16.0.5",
     "electron-json-storage": "4.5.0",
-    "electron-packager": "15.3.0",
-    "electron-rebuild": "3.1.1",
+    "electron-packager": "15.4.0",
+    "electron-rebuild": "3.2.5",
     "form-data": "4.0.0",
     "node-fetch": "2.6.1"
   },
   "scripts": {
     "clean": "rm -rf ./build",
     "build": "yarn clean && tsc && cp -r assets node_modules package.json build",
-    "build:electron": "electron-rebuild && electron-packager build --overwrite --platform=linux,darwin --arch=x64 --icon=./assets/logo.icns --prune=true --out=dist --ignore=temp",
+    "build:electron": "electron-rebuild && electron-packager build --overwrite --platform=linux,darwin --arch=x64,arm64 --icon=./assets/logo.icns --prune=true --out=dist --ignore=temp",
     "watch": "tsc -w",
     "start": "electron ./build/index.js"
   }
